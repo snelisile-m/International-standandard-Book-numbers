@@ -1,7 +1,8 @@
 from email import charset
 
 
-def isBookValid():
+def bookResults():
+    """prints the isbn results"""
     string = ""
     isbn = "9780316066525"
     isbn13 = isValidISBN13(isbn)
@@ -14,6 +15,8 @@ def isBookValid():
 
 
 def isValidISBN10(isbn):
+    """ checks if it is a valid isbn 10 book
+    """
     total = 0
     for i in range(9):
         if 0 <= int(isbn[i]) <= 9:
@@ -25,6 +28,8 @@ def isValidISBN10(isbn):
         return True
 
 def convert10_digit_to_13_digit(isbn):
+    """ converts the isbn10 to isbn13
+    """
     threeDigitsList = ["9","7","8"]
     isbnList = list(isbn)
     threeDigitsList.extend(isbnList)
@@ -34,6 +39,7 @@ def convert10_digit_to_13_digit(isbn):
     return threeDigitsList
 
 def isValidISBN13(isbn):
+    """checks if it is a valid isbn13"""
     message = ""
     total = 0
     numList = ['1','3','1','3','1','3','1','3','1','3','1','3','1']
@@ -58,5 +64,5 @@ def isValidISBN13(isbn):
             return message
         
 
-isBookValid()  
+bookResults()
         
